@@ -1,0 +1,11 @@
+# Source material — NOT part of the published website
+*.pdf
+/ChatGPT Image*.png
+/WhatsApp Image*.jpeg
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+*.log
+.idea/
+.vscode/

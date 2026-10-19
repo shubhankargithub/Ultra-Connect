@@ -1,0 +1,22 @@
+{
+  "name": "ultra-connect-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ultra Connect Multi Digi Service Pvt. Ltd. — website + CRM + vendor portal + orders + invoicing platform",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node -e \"require('./db').seed(true)\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.14.0"
+  }
+}

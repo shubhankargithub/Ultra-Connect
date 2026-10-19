@@ -1,0 +1,104 @@
+/* =========================================================
+   ULTRA CONNECT — PREMIUM PORTAL SKIN
+   Loaded after portal.css — refines the CRM/vendor console.
+   ========================================================= */
+
+.portal-body{background:
+  radial-gradient(900px 520px at 100% -6%,rgba(124,77,255,.05),transparent 60%),
+  radial-gradient(760px 480px at -8% 6%,rgba(59,91,255,.05),transparent 60%),
+  var(--soft)}
+
+/* ---------- Login ---------- */
+.login-wrap{
+  background:
+    radial-gradient(1000px 560px at 18% -12%,rgba(124,77,255,.34),transparent 60%),
+    radial-gradient(820px 460px at 104% 106%,rgba(34,211,238,.18),transparent 58%),
+    linear-gradient(160deg,#050720,var(--navy-950));
+}
+.login-card{
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 30px 80px rgba(4,6,25,.5);
+  position:relative;
+}
+.login-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  background:var(--grad-aurora);
+}
+.login-title{font-size:27px}
+.login-tabs{background:var(--soft)}
+.login-tab.is-active{color:var(--violet-600)}
+.pf-input:focus,.pf-textarea:focus,.pf-select:focus{border-color:var(--violet-500);box-shadow:0 0 0 4px rgba(124,77,255,.14)}
+.login-form .btn{margin-top:22px;box-shadow:var(--shadow-blue)}
+
+/* ---------- Sidebar ---------- */
+.sidebar{
+  background:
+    radial-gradient(500px 300px at 100% 0%,rgba(124,77,255,.22),transparent 60%),
+    linear-gradient(180deg,#050720,var(--navy-950));
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.side-link{border-radius:11px;transition:background-color .2s var(--ease),color .2s var(--ease),transform .15s var(--ease)}
+.side-link:hover{background:rgba(255,255,255,.07);transform:translateX(2px)}
+.side-link.is-active{
+  background:var(--grad-aurora-2);color:#fff;
+  box-shadow:0 10px 26px rgba(124,77,255,.35);
+}
+.side-group{color:#6D7DA8}
+
+/* ---------- Topbar ---------- */
+.topbar{
+  background:rgba(255,255,255,.86);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 8px 26px rgba(10,14,36,.05);
+}
+.topbar-title{letter-spacing:-.02em}
+.bell{background:var(--soft);transition:background-color .2s var(--ease)}
+.bell:hover{background:var(--blue-50)}
+.bell-badge{background:var(--grad-aurora-2)}
+
+/* ---------- Stat cards ---------- */
+.stat-grid{gap:16px}
+.stat-card{
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:transform .24s var(--ease),box-shadow .24s var(--ease);
+}
+.stat-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-aurora);opacity:.85;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.stat-card .val{background:linear-gradient(135deg,var(--ink),var(--navy-700));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-card.is-ok .val{background:none;-webkit-text-fill-color:#059669;color:#059669}
+.stat-card.is-warn .val{background:none;-webkit-text-fill-color:#D97706;color:#D97706}
+.stat-card.is-danger .val{background:none;-webkit-text-fill-color:#DC2626;color:#DC2626}
+
+/* ---------- Panels / tables ---------- */
+.panel{box-shadow:var(--shadow-sm)}
+.panel-head{background:linear-gradient(180deg,#fff,var(--soft))}
+.panel-head h2{letter-spacing:-.02em}
+.tbl tr:hover td{background:linear-gradient(90deg,rgba(124,77,255,.05),rgba(59,91,255,.03))}
+.tbl th{letter-spacing:.08em}
+
+/* ---------- Product cards ---------- */
+.prod-grid{gap:18px}
+.prod-card{transition:transform .24s var(--ease),box-shadow .24s var(--ease)}
+.prod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.prod-thumb{background:var(--grad-aurora-2)}
+.prod-meta .price{color:var(--violet-600)}
+
+/* ---------- Pipeline ---------- */
+.pipe-bar i{background:var(--grad-aurora)}
+
+/* ---------- Timeline dots ---------- */
+.timeline li::before{background:var(--violet-600);box-shadow:0 0 0 3px rgba(124,77,255,.16)}
+
+/* ---------- Modals / drawers / toast ---------- */
+.modal-card{border:1px solid var(--line)}
+.notif-item.is-unread{background:var(--blue-50);border-color:var(--blue-100)}
+.toast{background:linear-gradient(135deg,var(--navy-800),var(--navy-950));border:1px solid rgba(180,192,255,.18)}
+.toast.is-error{background:linear-gradient(135deg,#B91C1C,#7F1D1D);border-color:#FCA5A5}
+
+/* ---------- Print ---------- */
+.invoice-doc h1{letter-spacing:-.02em}
+.invoice-doc .totals .grand td{border-top-color:var(--violet-600)}

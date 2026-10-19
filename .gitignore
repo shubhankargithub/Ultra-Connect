@@ -1,4 +1,4 @@
-# Source material — NOT part of the published website
+# Source material - NOT part of the published website
 *.pdf
 /ChatGPT Image*.png
 /WhatsApp Image*.jpeg
@@ -9,3 +9,15 @@ Thumbs.db
 *.log
 .idea/
 .vscode/
+
+# Platform (server) - runtime & dependencies
+node_modules/
+data/
+*.sqlite
+*.db
+.env
+__smoke*.js
+__debug.js
+
+# Local tooling
+opencode.json

@@ -254,11 +254,30 @@
         valid = false;
       }
       if (!valid) return;
-      var success = document.getElementById("form-success");
-      if (success) success.classList.add("is-visible");
-      form.hidden = true;
-      success.setAttribute("tabindex", "-1");
-      if (success) success.focus();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var payload = {
+        name: (document.getElementById("name") || {}).value || "",
+        organization: (document.getElementById("school") || {}).value || "",
+        designation: (document.getElementById("designation") || {}).value || "",
+        phone: (document.getElementById("phone") || {}).value || "",
+        email: (document.getElementById("email") || {}).value || "",
+        city: (document.getElementById("city") || {}).value || "",
+        students: (document.getElementById("students") || {}).value || "",
+        interest: (document.getElementById("interest") || {}).value || "",
+        message: (document.getElementById("message") || {}).value || ""
+      };
+      function showSuccess() {
+        var success = document.getElementById("form-success");
+        if (success) success.classList.add("is-visible");
+        form.hidden = true;
+        if (success) { success.setAttribute("tabindex", "-1"); success.focus(); }
+      }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = ".7"; }
+      fetch((window.UC_API_BASE || "") + "/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function () { showSuccess(); }).catch(function () { showSuccess(); });
     });
 
     form.querySelectorAll(".form-input, .form-select, .form-textarea").forEach(function (input) {
@@ -292,6 +311,35 @@
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* ---------- Animated counters ---------- */
+  var counters = document.querySelectorAll("[data-count]");
+  function runCount(el) {
+    var target = parseFloat(el.getAttribute("data-count")) || 0;
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (reduced) { el.textContent = target + suffix; return; }
+    var start = null, dur = 1400;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (counters.length) {
+    if ("IntersectionObserver" in window) {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { runCount(en.target); cio.unobserve(en.target); }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function (c) { cio.observe(c); });
+    } else {
+      counters.forEach(runCount);
+    }
+  }
 
   ensureSprite();
 })();

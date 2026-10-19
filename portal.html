@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal | Ultra Connect</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/premium.css">
+  <link rel="stylesheet" href="css/portal.css">
+  <link rel="stylesheet" href="css/portal-premium.css">
+</head>
+<body class="portal-body">
+
+  <!-- ============ LOGIN ============ -->
+  <div id="login-view" class="login-wrap" hidden>
+    <div class="login-card">
+      <a class="login-brand" href="index.html">
+        <img src="assets/ultra-connect-logo-nav.png" alt="Ultra Connect" width="180">
+      </a>
+      <h1 class="login-title">Team Portal</h1>
+      <p class="login-sub">Sign in to Ultra Connect CRM, catalog &amp; operations</p>
+
+      <div class="login-tabs" role="tablist">
+        <button type="button" class="login-tab is-active" data-role="employee" role="tab">Employee</button>
+        <button type="button" class="login-tab" data-role="vendor" role="tab">Vendor</button>
+      </div>
+
+      <form id="login-form" class="login-form" novalidate>
+        <label class="pf-label" for="login-email">Email</label>
+        <input class="pf-input" type="email" id="login-email" autocomplete="username" placeholder="you@ultraconnect.in" required>
+        <label class="pf-label" for="login-password">Password</label>
+        <input class="pf-input" type="password" id="login-password" autocomplete="current-password" placeholder="••••••••" required>
+        <div id="login-error" class="login-error" role="alert" hidden></div>
+        <button class="btn btn--primary btn--block" type="submit">Sign In</button>
+      </form>
+
+      <div class="login-links">
+        <button type="button" class="linkish" id="forgot-btn">Forgot password?</button>
+        <a class="linkish" href="index.html">← Back to website</a>
+      </div>
+
+      <div id="forgot-box" class="forgot-box" hidden>
+        <label class="pf-label" for="forgot-email">Account email</label>
+        <input class="pf-input" type="email" id="forgot-email" placeholder="you@ultraconnect.in">
+        <button class="btn btn--ghost btn--block" type="button" id="forgot-submit">Send reset link</button>
+        <p id="forgot-msg" class="forgot-msg" hidden></p>
+      </div>
+
+      <details class="demo-box">
+        <summary>Demo accounts</summary>
+        <ul>
+          <li><strong>Admin</strong> — admin@ultraconnect.in / Admin@123!</li>
+          <li><strong>Employee</strong> — sales@ultraconnect.in / Sales@123!</li>
+          <li><strong>Vendor</strong> — vendor@demo.in / Vendor@123!</li>
+        </ul>
+        <p class="demo-note">Admin can also register new employees and approve vendors from the dashboard.</p>
+      </details>
+
+      <div class="register-cta">
+        Want to sell on Ultra Connect? <button type="button" class="linkish" id="vendor-register-btn">Register as a vendor</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VENDOR REGISTRATION ============ -->
+  <div id="vendor-register-view" class="login-wrap" hidden>
+    <div class="login-card login-card--wide">
+      <h1 class="login-title">Vendor Registration</h1>
+      <p class="login-sub">List your products on the Ultra Connect marketplace</p>
+      <form id="vendor-register-form" class="login-form" novalidate>
+        <div class="pf-grid">
+          <div><label class="pf-label" for="vr-name">Contact person *</label><input class="pf-input" id="vr-name" required></div>
+          <div><label class="pf-label" for="vr-company">Company name *</label><input class="pf-input" id="vr-company" required></div>
+          <div><label class="pf-label" for="vr-email">Email *</label><input class="pf-input" type="email" id="vr-email" required></div>
+          <div><label class="pf-label" for="vr-phone">Phone</label><input class="pf-input" id="vr-phone"></div>
+          <div><label class="pf-label" for="vr-gstin">GSTIN</label><input class="pf-input" id="vr-gstin"></div>
+          <div><label class="pf-label" for="vr-city">City</label><input class="pf-input" id="vr-city"></div>
+          <div><label class="pf-label" for="vr-state">State</label><input class="pf-input" id="vr-state"></div>
+          <div><label class="pf-label" for="vr-password">Password * (min 8 chars)</label><input class="pf-input" type="password" id="vr-password" required></div>
+        </div>
+        <div class="pf-field-full"><label class="pf-label" for="vr-address">Address</label><textarea class="pf-textarea" id="vr-address" rows="2"></textarea></div>
+        <div id="vr-error" class="login-error" role="alert" hidden></div>
+        <div id="vr-ok" class="login-ok" role="status" hidden></div>
+        <button class="btn btn--primary btn--block" type="submit">Submit Registration</button>
+      </form>
+      <div class="login-links"><button type="button" class="linkish" id="vr-back">← Back to login</button></div>
+    </div>
+  </div>
+
+  <!-- ============ RESET PASSWORD ============ -->
+  <div id="reset-view" class="login-wrap" hidden>
+    <div class="login-card">
+      <h1 class="login-title">Reset Password</h1>
+      <form id="reset-form" class="login-form">
+        <label class="pf-label" for="reset-pass">New password (min 8 chars)</label>
+        <input class="pf-input" type="password" id="reset-pass" required>
+        <div id="reset-error" class="login-error" role="alert" hidden></div>
+        <button class="btn btn--primary btn--block" type="submit">Update Password</button>
+      </form>
+      <div class="login-links"><a class="linkish" href="portal.html">← Back to login</a></div>
+    </div>
+  </div>
+
+  <!-- ============ APP SHELL ============ -->
+  <div id="app-view" class="app" hidden>
+    <aside class="sidebar">
+      <a class="sidebar-brand" href="index.html">
+        <img src="assets/ultra-connect-logo-nav.png" alt="Ultra Connect">
+      </a>
+      <nav class="sidebar-nav" id="sidebar-nav" aria-label="Portal"></nav>
+      <div class="sidebar-foot">
+        <div class="who" id="whoami"></div>
+        <button type="button" class="btn btn--ghost btn--sm" id="logout-btn">Sign out</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+        <h1 class="topbar-title" id="page-title">Dashboard</h1>
+        <div class="topbar-right">
+          <button type="button" class="bell" id="bell-btn" aria-label="Notifications">
+            🔔<span class="bell-badge" id="bell-badge" hidden>0</span>
+          </button>
+        </div>
+      </header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <!-- Notification drawer -->
+  <div class="drawer-backdrop" id="notif-backdrop" hidden></div>
+  <aside class="notif-drawer" id="notif-drawer" hidden aria-label="Notifications">
+    <div class="notif-head">
+      <h2>Notifications</h2>
+      <button type="button" class="linkish" id="mark-read">Mark all read</button>
+    </div>
+    <div id="notif-list" class="notif-list"></div>
+  </aside>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal-card" id="modal-card" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <!-- Invoice print root -->
+  <div id="print-root" class="print-root" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/portal.js"></script>
+</body>
+</html>

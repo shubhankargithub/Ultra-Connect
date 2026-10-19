@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Ultra Connect — Education &amp; E-Commerce Catalogue</title>
+  <meta name="description" content="Browse the full Ultra Connect product catalogue — school ERP, interactive panels, STEM labs, furniture, uniforms, safety and campus solutions. Full specifications and live stock.">
+  <meta name="keywords" content="Ultra Connect products, school products catalogue, interactive panels, STEM lab, school furniture, uniforms, CCTV, Bangalore">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ultraconnect.example/products.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ultra Connect">
+  <meta property="og:title" content="Products | Ultra Connect">
+  <meta property="og:description" content="Browse the full Ultra Connect catalogue with specifications, images and live availability.">
+  <meta property="og:url" content="https://www.ultraconnect.example/products.html">
+  <meta property="og:image" content="https://www.ultraconnect.example/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/premium.css">
+
+  <style>
+    .cat-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:28px}
+    .cat-search{flex:1;min-width:220px;border:1.5px solid var(--line-strong);border-radius:12px;padding:13px 16px;font:inherit;font-size:15px;color:var(--ink)}
+    .cat-search:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(31,107,255,.15)}
+    .cat-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .cat-chip{border:1.5px solid var(--line-strong);background:#fff;border-radius:999px;padding:8px 15px;font:inherit;font-size:13.5px;font-weight:600;color:var(--text);cursor:pointer;transition:.2s}
+    .cat-chip:hover{border-color:var(--blue-400);color:var(--blue-700)}
+    .cat-chip.is-active{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+    .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+    .cat-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+    .cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .cat-thumb{aspect-ratio:16/10;position:relative;display:grid;place-items:center;color:#fff;text-align:center;padding:18px}
+    .cat-thumb .cat-cat{font-family:var(--font-head);font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+    .cat-thumb .cat-ic{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center;margin:0 auto 12px;font-size:22px}
+    .cat-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .cat-sku{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+    .cat-name{font-family:var(--font-head);font-size:16.5px;font-weight:800;color:var(--ink);margin:0;line-height:1.3}
+    .cat-desc{font-size:14px;color:var(--text);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .cat-price{font-family:var(--font-head);font-weight:800;font-size:19px;color:var(--blue-700)}
+    .cat-price s{color:var(--muted);font-weight:500;font-size:13.5px;margin-left:8px}
+    .cat-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--muted)}
+    .cat-tag{background:var(--soft);border-radius:999px;padding:4px 10px;font-weight:600}
+    .cat-tag.is-low{background:#FEF3C7;color:#B45309}
+    .cat-tag.is-ok{background:#D1FAE5;color:#047857}
+    .cat-actions{display:flex;gap:10px;margin-top:auto;padding-top:8px}
+    .cat-actions .btn{flex:1;justify-content:center}
+    .cat-empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:60px 20px}
+    .prod-modal{position:fixed;inset:0;z-index:1200;background:rgba(4,8,31,.6);display:grid;place-items:center;padding:20px}
+    .prod-modal-inner{background:#fff;border-radius:var(--radius-lg);max-width:720px;width:100%;max-height:88vh;overflow:auto;box-shadow:var(--shadow-lg)}
+    .prod-modal-head{display:flex;justify-content:space-between;gap:16px;padding:22px 24px 0}
+    .prod-modal-body{padding:16px 24px 26px}
+    .spec-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+    .spec-table th,.spec-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+    .spec-table th{width:40%;color:var(--muted);font-weight:600}
+    .spec-table td{color:var(--ink);font-weight:600}
+    .modal-x{border:0;background:var(--soft);border-radius:10px;width:38px;height:38px;font-size:16px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Ultra Connect — Home">
+        <img class="brand-logo" src="assets/ultra-connect-logo-nav.png" alt="Ultra Connect — Education | E-Commerce" width="640" height="427">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <div class="nav-item--mega">
+          <a class="nav-link" href="solutions.html" data-mega aria-expanded="false" aria-controls="mega-panel">
+            Solutions <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron"></use></svg>
+          </a>
+          <div class="mega" id="mega-panel">
+            <div class="mega-panel">
+              <div class="mega-grid"><!-- populated by js/solutions-data.js --></div>
+              <div class="mega-foot">
+                <div class="mega-foot-inner">
+                  <p><strong>22+ solutions</strong> across technology, infrastructure, safety and student experience.</p>
+                  <a class="btn btn--primary" href="solutions.html">Explore All Solutions <svg class="icon icon--arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow"></use></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link is-active" href="products.html" aria-current="page">Products</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="partners.html">Partners</a>
+        <a class="nav-link" href="team.html">Team</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="portal.html">Login</a>
+      </nav>
+      <a class="btn btn--primary nav-cta" href="portal.html">Team / Vendor Login <svg class="icon icon--arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow"></use></svg></a>
+      <div class="mobile-actions">
+        <a class="btn btn--primary nav-cta" href="contact.html" style="padding:11px 18px;font-size:14px">Request Consultation</a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <div class="drawer-head">
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/ultra-connect-logo-nav.png" alt="Ultra Connect" width="640" height="427" style="height:32px"></a>
+        <button class="drawer-close" type="button" aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-close"></use></svg></button>
+      </div>
+      <div class="drawer-body">
+        <nav class="drawer-nav" aria-label="Mobile">
+          <a class="drawer-link" href="index.html">Home <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link is-active" href="products.html">Products <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="solutions.html">Solutions <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="about.html">About <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="partners.html">Partners <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="team.html">Team <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="contact.html">Contact <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+          <a class="drawer-link" href="portal.html">Team / Vendor Login <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg></a>
+        </nav>
+      </div>
+      <div class="drawer-foot">
+        <a class="btn btn--primary btn--block" href="contact.html">Request Consultation</a>
+        <a class="btn btn--secondary btn--block" href="portal.html">Team / Vendor Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="prod-hero-title">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chevron"></use></svg>
+          <span>Products</span>
+        </nav>
+        <p class="eyebrow eyebrow--light">Full Catalogue</p>
+        <h1 id="prod-hero-title">Every Product &amp; Service, In One Catalogue.</h1>
+        <p class="page-sub">Browse Ultra Connect's complete range with specifications and live availability. Interested in bulk quantities for your school? Request a quotation and it flows straight into our CRM.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="catalogue-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Catalogue</p>
+          <h2 class="section-title" id="catalogue-title">Products &amp; Solutions</h2>
+          <p class="section-sub">Prices shown are indicative institutional pricing. Bulk and school-wide orders receive custom quotations.</p>
+        </div>
+
+        <div class="cat-toolbar">
+          <input class="cat-search" id="cat-search" type="search" placeholder="Search products, SKUs or specifications…" aria-label="Search products">
+          <div class="cat-chips" id="cat-chips"></div>
+        </div>
+
+        <div class="catalog-grid" id="catalog-grid">
+          <div class="cat-empty">Loading catalogue…</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Need a Quotation?</p>
+          <h2 class="section-title" id="cta-title">Bulk Orders &amp; School-Wide Rollouts</h2>
+          <p class="section-sub">Tell us the products and quantities you need. Our team prepares a consolidated quotation and books a follow-up automatically.</p>
+          <div style="margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn--primary" href="contact.html">Request a Quotation <svg class="icon icon--arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow"></use></svg></a>
+            <a class="btn btn--ghost" href="portal.html">Vendor Login</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand-logo-chip" href="index.html" aria-label="Ultra Connect — Home">
+            <img class="brand-logo" src="assets/ultra-connect-logo-nav.png" alt="Ultra Connect — Education | E-Commerce" width="640" height="427">
+          </a>
+          <p>Complete Education Transformation Solutions. Empowering schools, educators and students through technology, innovation and future-ready learning.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Portal</h4>
+          <ul>
+            <li><a href="portal.html">Team Login</a></li>
+            <li><a href="portal.html">Vendor Login</a></li>
+            <li><a href="portal.html">Vendor Registration</a></li>
+            <li><a href="contact.html">Enquiries</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-mail"></use></svg><span>Email: [EMAIL]</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-whatsapp"></use></svg><span>WhatsApp: [WHATSAPP]</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-tagline">Building smarter schools for a better tomorrow.</span>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+        <span>&copy; <span data-year>2026</span> Ultra Connect. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product detail modal -->
+  <div class="prod-modal" id="prod-modal" hidden>
+    <div class="prod-modal-inner" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+      <div class="prod-modal-head">
+        <div>
+          <div class="cat-sku" id="pm-sku"></div>
+          <h2 id="pm-title" style="margin:6px 0 0;font-size:22px"></h2>
+        </div>
+        <button class="modal-x" id="pm-close" aria-label="Close">✕</button>
+      </div>
+      <div class="prod-modal-body">
+        <div class="cat-price" id="pm-price" style="font-size:24px;margin-bottom:8px"></div>
+        <p id="pm-desc" style="color:var(--text)"></p>
+        <h3 style="font-size:16px;margin:18px 0 6px">Specifications</h3>
+        <table class="spec-table" id="pm-specs"></table>
+        <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+          <a class="btn btn--primary" id="pm-enquire">Enquire About This Product <svg class="icon icon--arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow"></use></svg></a>
+          <a class="btn btn--ghost" href="contact.html">Request Bulk Quotation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/solutions-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    var state = { products: [], category: "", q: "" };
+    var CAT_COLORS = {
+      "Academic & Digital": "linear-gradient(135deg,#04081F,#0050F8)",
+      "Institutional Support": "linear-gradient(135deg,#0A1440,#7C3AED)",
+      "Campus & Infrastructure": "linear-gradient(135deg,#122052,#0E7490)",
+      "Safety & Security": "linear-gradient(135deg,#0A1440,#047857)",
+      "Student Experience": "linear-gradient(135deg,#1B2E6B,#BE123C)"
+    };
+    var el = function (id) { return document.getElementById(id); };
+    function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
+    function money(n) { return n > 0 ? "\u20B9" + Number(n).toLocaleString("en-IN") : "Request price"; }
+    function color(cat) { return CAT_COLORS[cat] || "linear-gradient(135deg,#0A1440,#1F6BFF)"; }
+
+    function renderChips() {
+      var cats = [];
+      state.products.forEach(function (p) { if (cats.indexOf(p.category) < 0) cats.push(p.category); });
+      cats.sort();
+      el("cat-chips").innerHTML = '<button class="cat-chip' + (state.category ? "" : " is-active") + '" data-cat="">All</button>' +
+        cats.map(function (c) { return '<button class="cat-chip' + (state.category === c ? " is-active" : "") + '" data-cat="' + esc(c) + '">' + esc(c) + "</button>"; }).join("");
+      el("cat-chips").querySelectorAll(".cat-chip").forEach(function (b) {
+        b.addEventListener("click", function () { state.category = b.getAttribute("data-cat"); renderChips(); render(); });
+      });
+    }
+
+    function filtered() {
+      var q = state.q.toLowerCase();
+      return state.products.filter(function (p) {
+        if (state.category && p.category !== state.category) return false;
+        if (!q) return true;
+        var hay = (p.name + " " + p.sku + " " + p.description + " " + JSON.stringify(p.specs)).toLowerCase();
+        return hay.indexOf(q) > -1;
+      });
+    }
+
+    function render() {
+      var list = filtered();
+      if (!list.length) { el("catalog-grid").innerHTML = '<div class="cat-empty">No products match your search.</div>'; return; }
+      el("catalog-grid").innerHTML = list.map(function (p) {
+        var stock = p.stock_on_hand <= 5
+          ? '<span class="cat-tag is-low">Low stock</span>'
+          : '<span class="cat-tag is-ok">In stock</span>';
+        var vendor = p.vendor_name ? '<span class="cat-tag">' + esc(p.vendor_name) + "</span>" : "";
+        return '<article class="cat-card">' +
+          '<div class="cat-thumb" style="background:' + color(p.category) + '"><div><div class="cat-ic">' + esc(p.category.charAt(0)) + '</div><div class="cat-cat">' + esc(p.category) + "</div></div></div>" +
+          '<div class="cat-body"><div class="cat-sku">' + esc(p.sku) + '</div><h3 class="cat-name">' + esc(p.name) + "</h3>" +
+          '<p class="cat-desc">' + esc(p.description) + "</p>" +
+          '<div class="cat-price">' + money(p.price) + (p.mrp > p.price ? "<s>" + money(p.mrp) + "</s>" : "") + "</div>" +
+          '<div class="cat-meta">' + stock + vendor + "</div>" +
+          '<div class="cat-actions"><button class="btn btn--ghost btn--sm" data-view="' + p.id + '">Details</button><a class="btn btn--primary btn--sm" href="contact.html?interest=' + encodeURIComponent(p.name) + '">Enquire</a></div>' +
+          "</div></article>";
+      }).join("");
+      el("catalog-grid").querySelectorAll("[data-view]").forEach(function (b) {
+        b.addEventListener("click", function () { openDetail(Number(b.getAttribute("data-view"))); });
+      });
+    }
+
+    function openDetail(id) {
+      var p = state.products.filter(function (x) { return x.id === id; })[0];
+      if (!p) return;
+      el("pm-sku").textContent = p.sku;
+      el("pm-title").textContent = p.name;
+      el("pm-price").textContent = money(p.price) + (p.mrp > p.price ? "  (MRP " + money(p.mrp) + ")" : "");
+      el("pm-desc").textContent = p.description;
+      var specs = p.specs || {};
+      var keys = Object.keys(specs);
+      el("pm-specs").innerHTML = keys.length
+        ? keys.map(function (k) { return "<tr><th>" + esc(k) + "</th><td>" + esc(specs[k]) + "</td></tr>"; }).join("") +
+          "<tr><th>Availability</th><td>" + p.stock_on_hand + " units in stock</td></tr>" +
+          (p.vendor_name ? "<tr><th>Listed by</th><td>" + esc(p.vendor_name) + "</td></tr>" : "<tr><th>Listed by</th><td>Ultra Connect</td></tr>")
+        : "<tr><td colspan='2'>Contact us for detailed specifications.</td></tr>";
+      el("pm-enquire").setAttribute("href", "contact.html?interest=" + encodeURIComponent(p.name));
+      el("prod-modal").hidden = false;
+    }
+    el("pm-close").addEventListener("click", function () { el("prod-modal").hidden = true; });
+    el("prod-modal").addEventListener("click", function (e) { if (e.target === el("prod-modal")) el("prod-modal").hidden = true; });
+    el("cat-search").addEventListener("input", function () { state.q = this.value; render(); });
+
+    fetch((window.UC_API_BASE || "") + "/api/products").then(function (r) { return r.json(); }).then(function (d) {
+      state.products = d.products || [];
+      if (!state.products.length) { el("catalog-grid").innerHTML = '<div class="cat-empty">Catalogue is being updated. Please check back soon.</div>'; return; }
+      renderChips(); render();
+    }).catch(function () {
+      el("catalog-grid").innerHTML = '<div class="cat-empty">Unable to load the live catalogue right now. Please <a href="contact.html">contact us</a> for product details.</div>';
+    });
+  })();
+  </script>
+</body>
+</html>

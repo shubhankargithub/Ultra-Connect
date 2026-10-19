@@ -1,0 +1,32 @@
+# Render Blueprint — Ultra Connect portal (Node API + CRM + vendor portal)
+# Deploy: Render Dashboard -> New + -> Blueprint -> pick this repo.
+# This service hosts the portal AND the API on ONE origin, so login sessions
+# are first-party (no third-party-cookie problems). The marketing site lives on Vercel.
+services:
+  - type: web
+    name: ultra-connect-portal
+    runtime: node
+    # 'starter' is required for the persistent disk below (keeps the SQLite DB across restarts/deploys).
+    # On the 'free' plan, remove the `disk:` block and the DB resets on every deploy/restart.
+    plan: starter
+    region: singapore
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22.11.0"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DB_DIR
+        value: /var/data
+      - key: DB_PATH
+        value: /var/data/ultraconnect.db
+      # Allow the Vercel static site to call this API. Set to your Vercel URL, e.g.
+      # https://ultra-connect.vercel.app  (leave blank to reflect any origin).
+      - key: CORS_ORIGINS
+        sync: false
+    disk:
+      name: uc-data
+      mountPath: /var/data
+      sizeGB: 1

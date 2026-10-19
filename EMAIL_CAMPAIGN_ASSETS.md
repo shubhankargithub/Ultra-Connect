@@ -1,8 +1,10 @@
 # Ultra Connect — Premium School Transformation Email
 ## Campaign Assets & Delivery Notes
 
-**File:** `index.html` (the email itself)
+**File:** `email/ultra-connect-email.html` (the email itself; the repo root `index.html` is the live website homepage — do not overwrite)
 **Brand reference:** https://shubhankargithub.github.io/Ultra-Connect/
+
+> **v2 (compact redesign):** 20KB HTML (Gmail clips at 102KB — v1 was 122KB and got truncated/broken). No placeholder/example-domain links, 9 links total, `List-Unsubscribe` header added at send time. Mobile stacks to 1 column, no horizontal overflow from 280px up. Live preview: https://shubhankargithub.github.io/Ultra-Connect/email/ultra-connect-email.html
 
 ---
 

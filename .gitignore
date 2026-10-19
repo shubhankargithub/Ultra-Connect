@@ -19,5 +19,7 @@ data/
 __smoke*.js
 __debug.js
 
-# Local tooling
+# Local tooling / deploy credentials
 opencode.json
+.vercel
+.env*

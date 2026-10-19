@@ -1,18 +1,32 @@
+# --- build / runtime (not part of the static site) ---
 node_modules
 data
+.vercel
+.git
+.gitignore
+.vercelignore
 *.db
 *.db-wal
 *.db-shm
 *.sqlite
 *.log
 .env
+
+# --- backend (runs on the Node host, not on the static deploy) ---
 server.js
 db.js
 package.json
 package-lock.json
 render.yaml
+vercel.json
 start-ultra-connect.bat
-EMAIL_CAMPAIGN_ASSETS.md
+_config.yml
 opencode.json
+
+# --- source material / tooling (not published) ---
+*.pdf
+SIGNED
+EMAIL_CAMPAIGN_ASSETS.md
 email
-__*
+ChatGPT Image*
+WhatsApp Image*

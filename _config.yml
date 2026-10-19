@@ -1,0 +1,14 @@
+# GitHub Pages (Jekyll) config — keep backend + tooling files out of the published site.
+exclude:
+  - server.js
+  - db.js
+  - package.json
+  - package-lock.json
+  - render.yaml
+  - vercel.json
+  - .vercelignore
+  - .gitignore
+  - start-ultra-connect.bat
+  - EMAIL_CAMPAIGN_ASSETS.md
+  - email
+  - opencode.json

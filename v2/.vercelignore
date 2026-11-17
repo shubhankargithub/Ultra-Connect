@@ -1,0 +1,10 @@
+node_modules
+.vercel
+.git
+*.log
+.env*
+build.js
+site-lib.js
+content.js
+serve.js
+data
